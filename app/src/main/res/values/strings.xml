@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">PizzaBuilder</string>
+    <!--Application-->
+    <string name="app_name">Pizza Builder</string>
+    <!--Pizza Size-->
+    <string name="small">Small (S)</string>
+    <string name="medium">Medium (M)</string>
+    <string name="large">Large (L)</string>
+    <!--Toppings-->
+    <string name="pepperoni">Pepperoni</string>
+    <string name="chicken">Chicken</string>
+    <string name="cheese">Cheese</string>
+    <string name="mushroom">Mushroom</string>
+    <string name="green_pepper">Green Pepper</string>
+    <string name="green_olive">Green Olive</string>
+    <string name="pizza_size">PIZZA SIZE</string>
+    <string name="toppings">$0.50/TOPPING</string>
+    <!--Buttons-->
+    <string name="next">Next</string>
+    <item name="editText" type="id"></item>
 </resources>
