@@ -14,7 +14,9 @@
     <string name="green_olive">Green Olive</string>
     <string name="pizza_size">PIZZA SIZE</string>
     <string name="toppings">$0.50/TOPPING</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="subtotal_price">$9.99</string>
     <!--Buttons-->
     <string name="next">Next</string>
-    <item name="editText" type="id"></item>
+    <string name="submit">Submit</string>
 </resources>
