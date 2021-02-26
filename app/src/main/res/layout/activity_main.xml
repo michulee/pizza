@@ -57,18 +57,21 @@
                         android:id="@+id/small"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="setSize"
                         android:text="@string/small" />
 
                     <RadioButton
                         android:id="@+id/medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="setSize"
                         android:text="@string/medium" />
 
                     <RadioButton
                         android:id="@+id/large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="setSize"
                         android:text="@string/large" />
                 </RadioGroup>
 
@@ -100,6 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/mushroom" />
 
 
@@ -123,6 +127,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/pepperoni" />
         </LinearLayout>
 
@@ -143,6 +148,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/cheese" />
 
         </LinearLayout>
@@ -164,6 +170,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/chicken" />
 
         </LinearLayout>
@@ -185,6 +192,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/green_olive" />
 
 
@@ -207,6 +215,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="setToppings"
                 android:text="@string/green_pepper" />
 
 
