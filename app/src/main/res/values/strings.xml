@@ -2,9 +2,13 @@
     <!--Application-->
     <string name="app_name">Pizza Builder</string>
     <!--Pizza Size-->
-    <string name="small">Small (S)</string>
-    <string name="medium">Medium (M)</string>
-    <string name="large">Large (L)</string>
+    <string name="size_price">%1$s %2$s %3$s</string>
+    <string name="size_small">Small</string>
+    <string name="size_medium">Medium</string>
+    <string name="size_large">Large</string>
+    <string name="size_small_price">5.99</string>
+    <string name="size_medium_price">7.99</string>
+    <string name="size_large_price">9.99</string>
     <!--Toppings-->
     <string name="pepperoni">Pepperoni</string>
     <string name="chicken">Chicken</string>
@@ -15,7 +19,7 @@
     <string name="pizza_size">PIZZA SIZE</string>
     <string name="toppings">$0.50/TOPPING</string>
     <string name="subtotal">Subtotal</string>
-    <string name="subtotal_price">$9.99</string>
+    <string name="subtotal_price">9.99</string>
     <!--Buttons-->
     <string name="next">Next</string>
     <string name="submit">Submit</string>
