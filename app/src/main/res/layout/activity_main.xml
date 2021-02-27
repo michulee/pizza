@@ -58,21 +58,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="setSize"
-                        android:text="@string/size_small" />
+                        android:text="@string/small" />
 
                     <RadioButton
                         android:id="@+id/medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="setSize"
-                        android:text="@string/size_medium" />
+                        android:text="@string/medium" />
 
                     <RadioButton
                         android:id="@+id/large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="setSize"
-                        android:text="@string/size_large" />
+                        android:text="@string/large" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -236,7 +236,7 @@
                 android:text="@string/subtotal" />
 
             <TextView
-                android:id="@+id/subtotal"
+                android:id="@+id/textView18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
