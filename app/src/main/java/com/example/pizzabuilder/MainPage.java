@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainPage extends AppCompatActivity {
     private static final String STRING = "STRING";
     private static final String STRING_ARR = "STRING_ARR";
     public static final String EXTRA_MESSAGE = "com.example.pizzabuilder.MESSAGE";
@@ -28,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
     private static final double SIZE_MEDIUM_PRICE = 7.99;
     private static final double SIZE_LARGE_PRICE = 9.99;
 
+    OrderDetails order = new OrderDetails();
+    //order.setPrice(size_price);
+    //want CustomerPage to house the variables
+
+    //setText will be in activity classes
+    //activity (view) classes should only call variables from OrderDetails and setText
+
+    //subtotal = order.calculateSubtotal(); ..execute calculateSubtotal and access subtotal from OrderDetails or MainPage?
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +45,11 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Next button */
     public void sendMessage(View view) {
         //getSize(), getToppings()
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        Intent intent = new Intent(this, CustomerPage.class);
         startActivity(intent);
     }
 
+    //the pricing not adjusting
     public void setSize(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -112,11 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         Log.d(STRING_ARR, String.valueOf(toppings));
+        //
         calculateSubtotal(toppings);
         strToTextView(String.valueOf(subtotal), R.id.subtotal);
     }
 
 
+    //should be in OrderDetails
     public double calculateSubtotal(ArrayList<String> list) {
         if(list.size() == 0) {
             return subtotal = size_price;
@@ -129,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 //        strToTextView(String.valueOf(subtotal), R.id.subtotal);
 //    }
 
+    //this utility class, should be somehwere else... but keep it here for now
     public void strToTextView(String str, int textViewID) {
         TextView text = (TextView)findViewById(textViewID);
         text.setText(str);
