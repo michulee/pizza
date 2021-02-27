@@ -11,6 +11,8 @@ public class CustomerPage extends AppCompatActivity {
     private double total = 0;
     private String pizzaDetails = "";
 
+    OrderDetails order = new OrderDetails();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

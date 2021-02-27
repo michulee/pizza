@@ -3,6 +3,7 @@ package com.example.pizzabuilder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,10 +19,10 @@ public class MainPage extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.pizzabuilder.MESSAGE";
 
     private String size = "";
-    ArrayList<String> toppings = new ArrayList<String>();
-    private double subtotal = 0;
-    private static double size_price = 0;
-    private static final double TOPPING_PRICE = 0.50;
+//    ArrayList<String> toppings = new ArrayList<String>();
+//    private double subtotal = 0;
+//    private static double size_price = 0;
+//    private static final double TOPPING_PRICE = 0.50;
 
     private static double SIZE_SMALL_PRICE = 5.99;
     private static final double SIZE_MEDIUM_PRICE = 7.99;
@@ -49,34 +50,36 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //the pricing not adjusting
+    // TODO: 2/27/2021  SIZE_SMALL_PRICE here and set to string resource
     public void setSize(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
+        Resources res;
 
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.small:
                 if (checked)
-                    this.size = getString(R.string.size_small);
-                    this.size_price = SIZE_SMALL_PRICE;
+//                    this.size = getString(R.string.size_small);
+                    //setSizePrice(0) or setSizeSmall(), setSizeMedium()..
+                    order.setSizePrice(SIZE_SMALL_PRICE);
                     break;
             case R.id.medium:
                 if (checked)
-                    this.size = getString(R.string.size_medium);
-                    this.size_price = SIZE_MEDIUM_PRICE;
+//                    this.size = getString(R.string.size_medium);
+                    order.setSizePrice(SIZE_MEDIUM_PRICE);
                     break;
             case R.id.large:
                 if (checked)
-                    this.size = getString(R.string.size_large);
-                    this.size_price = SIZE_LARGE_PRICE;
+//                    this.size = getString(R.string.size_large);
+                    order.setSizePrice(SIZE_LARGE_PRICE);
                     break;
         }
         Log.d(STRING, size);
-        calculateSubtotal(toppings);
-        strToTextView(String.valueOf(subtotal), R.id.subtotal);
+        strToTextView(String.valueOf(order.getSubtotal()), R.id.subtotal);
     }
 
+    // TODO: 2/27/2021  toppings not being remove after untoggle
     public void setToppings(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -85,60 +88,44 @@ public class MainPage extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.mushroom:
                 if (checked)
-                    this.toppings.add(getString(R.string.mushroom));
+                    order.addItem("Mushroom");
                 else
-                    this.toppings.remove(getString(R.string.mushroom));
+                    order.removeItem("Mushroom");
                     break;
             case R.id.pepperoni:
                 if (checked)
-                    this.toppings.add(getString(R.string.pepperoni));
+                    order.addItem("Pepperoni");
                 else
-                    this.toppings.remove(getString(R.string.pepperoni));
+                    order.removeItem("Pepperoni");
                     break;
             case R.id.cheese:
                 if (checked)
-                    this.toppings.add(getString(R.string.cheese));
+                    order.addItem("Cheese");
                 else
-                    this.toppings.remove(getString(R.string.cheese));
+                    order.removeItem("Cheese");
                 break;
             case R.id.chicken:
                 if (checked)
-                    this.toppings.add(getString(R.string.chicken));
+                    order.addItem("Chicken");
                 else
-                    this.toppings.remove(getString(R.string.chicken));
+                    order.removeItem("Chicken");
                 break;
             case R.id.green_olive:
                 if (checked)
-                    this.toppings.add(getString(R.string.green_olive));
+                    order.addItem("Green olive");
                 else
-                    this.toppings.remove(getString(R.string.green_olive));
+                    order.removeItem("Green Olive");
                 break;
             case R.id.green_pepper:
                 if (checked)
-                    this.toppings.add(getString(R.string.green_pepper));
+                    order.addItem("Green Pepper");
                 else
-                    this.toppings.remove(getString(R.string.green_pepper));
+                    order.removeItem("Green Pepper");
                 break;
         }
-        Log.d(STRING_ARR, String.valueOf(toppings));
-        //
-        calculateSubtotal(toppings);
-        strToTextView(String.valueOf(subtotal), R.id.subtotal);
+        Log.d(STRING_ARR, String.valueOf(order.getToppings()));
+        strToTextView(String.valueOf(order.getSubtotal()), R.id.subtotal);
     }
-
-
-    //should be in OrderDetails
-    public double calculateSubtotal(ArrayList<String> list) {
-        if(list.size() == 0) {
-            return subtotal = size_price;
-        }
-        Log.d(STRING, String.valueOf(size_price));
-        return subtotal = list.size() * TOPPING_PRICE + size_price;
-    }
-
-//    public void setSubtotal(View view) {
-//        strToTextView(String.valueOf(subtotal), R.id.subtotal);
-//    }
 
     //this utility class, should be somehwere else... but keep it here for now
     public void strToTextView(String str, int textViewID) {
