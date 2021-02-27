@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static final double TOPPING_PRICE = 0.50;
 
     //get @string/size_small_price and convert to a double
-    private static double SIZE_SMALL_PRICE = 0;
+    private static double SIZE_SMALL_PRICE = 5.99;
     private static final double SIZE_MEDIUM_PRICE = 7.99;
     private static final double SIZE_LARGE_PRICE = 9.99;
 
@@ -29,13 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private String size = "";
     private static double size_price = 0;
     private double subtotal = 0;
-
-    //textview of size prices for S,M,L
-    //don't separate textView for $ sign
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         //every time button is clicked
         //all radioButtons and checkBoxes have onClick = "setSubtotal"
         //in setSubtotal(View view), if radioV.isChecked() call setSize(), else if checkboxV.isChecked() call setToppings(); set textView of subtotal
-        calculateSubtotal(toppings);
-        Log.d(STRING, size.toString());
-        strToTextView(String.valueOf(subtotal), R.id.subtotal);
+//        calculateSubtotal(toppings);
+//        Log.d(STRING, size.toString());
+//        strToTextView(String.valueOf(subtotal), R.id.subtotal);
 
 
         //sets text if changes
@@ -66,15 +59,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
-
-    //also have to set placeholders for size_price... which is not ideal, maybe not go with this updated route
-    public String displayResStr(String combinedStr, ArrayList<String> strings) {
-        String text = "";
-
-        return text;
-    }
-
-
 
     public void setSize(View view) {
         // Is the button now checked?
@@ -100,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.d(STRING, size);
     }
-
-
 
     public void setToppings(View view) {
         // Is the view now checked?
@@ -144,29 +126,42 @@ public class MainActivity extends AppCompatActivity {
                     this.toppings.add(getString(R.string.green_pepper));
                 else
                     this.toppings.remove(getString(R.string.green_pepper));
+                Log.d(STRING_ARR, String.valueOf(toppings));
                 break;
         }
+        //after untoggling checkbox, it doesn't remove andd also doesn't log
         Log.d(STRING_ARR, String.valueOf(toppings));
         //if arrayList is null validation
     }
 
 
     public double calculateSubtotal(ArrayList<String> list) {
-        int listSize = list.size();
-        if(listSize == 0) {
-            return subtotal = size_price;
+        //click size first
+        if(list.size() == 0) {
+            subtotal = size_price;
+//            Log.d(STRING, "calculateSubtota == 0");
         }
-        return subtotal = listSize * TOPPING_PRICE + size_price;
+        //click toppings first
+        if(list.size() != 0) {
+            Log.d(STRING, "calculateSubtotal != 0");
+            subtotal = list.size() * TOPPING_PRICE + size_price;
+        }
+        return subtotal;
     }
 
-    //onClick
+    //fix setToppings(), not removing properly
     public void setSubtotal(View view) {
+        Log.d(STRING, String.valueOf(view));
+//        
         if(((RadioButton) view).isChecked()) {
             setSize(view);
+            Log.d(STRING, "setSubtotal - radio");
         }
         else if(((CheckBox) view).isChecked()) {
             setToppings(view);
+            Log.d(STRING, "setSubtotal - checkbox");
         }
+        calculateSubtotal(toppings);
         strToTextView(String.valueOf(subtotal), R.id.subtotal);
     }
 
