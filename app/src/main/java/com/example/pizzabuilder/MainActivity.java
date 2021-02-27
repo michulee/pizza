@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,11 +17,16 @@ public class MainActivity extends AppCompatActivity {
     private static final String STRING = "STRING";
     private static final String STRING_ARR = "STRING_ARR";
     public static final String EXTRA_MESSAGE = "com.example.pizzabuilder.MESSAGE";
+
     private String size = "";
     ArrayList<String> toppings = new ArrayList<String>();
-    private int toppingsNum = 0;
     private double subtotal = 0;
+    private static double size_price = 0;
     private static final double TOPPING_PRICE = 0.50;
+
+    private static double SIZE_SMALL_PRICE = 5.99;
+    private static final double SIZE_MEDIUM_PRICE = 7.99;
+    private static final double SIZE_LARGE_PRICE = 9.99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +49,23 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.small:
                 if (checked)
-                    this.size = getString(R.string.small);
+                    this.size = getString(R.string.size_small);
+                    this.size_price = SIZE_SMALL_PRICE;
                     break;
             case R.id.medium:
                 if (checked)
-                    this.size = getString(R.string.medium);
+                    this.size = getString(R.string.size_medium);
+                    this.size_price = SIZE_MEDIUM_PRICE;
                     break;
             case R.id.large:
                 if (checked)
-                    this.size = getString(R.string.large);
+                    this.size = getString(R.string.size_large);
+                    this.size_price = SIZE_LARGE_PRICE;
                     break;
         }
         Log.d(STRING, size);
+        calculateSubtotal(toppings);
+        strToTextView(String.valueOf(subtotal), R.id.subtotal);
     }
 
     public void setToppings(View view) {
@@ -101,14 +112,27 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         Log.d(STRING_ARR, String.valueOf(toppings));
+        calculateSubtotal(toppings);
+        strToTextView(String.valueOf(subtotal), R.id.subtotal);
     }
 
 
     public double calculateSubtotal(ArrayList<String> list) {
-        int listSize = list.size();
-        return subtotal = listSize * TOPPING_PRICE;
+        if(list.size() == 0) {
+            return subtotal = size_price;
+        }
+        Log.d(STRING, String.valueOf(size_price));
+        return subtotal = list.size() * TOPPING_PRICE + size_price;
     }
 
-    //set @string/subtotal every time there's a click of radiobutton OR checkbox
+//    public void setSubtotal(View view) {
+//        strToTextView(String.valueOf(subtotal), R.id.subtotal);
+//    }
+
+    public void strToTextView(String str, int textViewID) {
+        TextView text = (TextView)findViewById(textViewID);
+        text.setText(str);
+    }
+
 
 }
