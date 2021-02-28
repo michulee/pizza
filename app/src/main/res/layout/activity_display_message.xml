@@ -1,290 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
     tools:context=".CustomerPage">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="Billing Information"
-        android:textSize="20sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".CustomerPage">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Billing Information"
+            android:textSize="20sp" />
 
         <LinearLayout
+            android:id="@+id/info"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="150dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingLeft="50dp"
-                android:text="Full Name" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="John Doe"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="50dp"
+                    android:text="Full Name" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="John Doe"
+                    android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="50dp"
-                android:text="Phone Number" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="(123) 456 - 7890"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="50dp"
-                android:text="Email" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="email@email.com"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="50dp"
-                android:text="Address" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="1234 Address Ave. City, CA 12345"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tblItem"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/gray"
-                android:gravity="center"
-                android:text="Item" />
-
-            <TextView
-                android:id="@+id/tblDesc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:background="@color/gray"
-                android:gravity="center"
-                android:text="Description" />
-
-            <TextView
-                android:id="@+id/tblPrice"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/gray"
-                android:gravity="center"
-                android:text="Price" />
-
-            <TextView
-                android:id="@+id/tblQuantity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/gray"
-                android:gravity="center"
-                android:text="Quantity" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/tblItem1"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/pizza_whole" />
-
-            <TextView
-                android:id="@+id/tblDesc1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Large Pizza: Pepperoni, Mushroom, Cheese, Cicken, Green Pepper, Green Olive" />
-
-            <TextView
-                android:id="@+id/tblPrice1"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="$9.99" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tblQuantity1"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="50dp"
+                    android:text="Phone Number" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="(123) 456 - 7890"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="1" />
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="50dp"
+                    android:text="Email" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="email@email.com"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="50dp"
+                    android:text="Address" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="1234 Address Ave. City, CA 12345"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <LinearLayout
+            android:id="@+id/tbl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:paddingRight="10dp"
-                android:text="Subtotal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/subtotal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="$9.99" />
+                <TextView
+                    android:id="@+id/tblItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/gray"
+                    android:gravity="center"
+                    android:text="Item" />
+
+                <TextView
+                    android:id="@+id/tblDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@color/gray"
+                    android:gravity="center"
+                    android:text="Description" />
+
+                <TextView
+                    android:id="@+id/tblPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/gray"
+                    android:gravity="center"
+                    android:text="Price" />
+
+                <TextView
+                    android:id="@+id/tblQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/gray"
+                    android:gravity="center"
+                    android:text="Quantity" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/tblItem1"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/pizza_whole" />
+
+                <TextView
+                    android:id="@+id/tblDesc1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Large Pizza: Pepperoni, Mushroom, Cheese, Cicken, Green Pepper, Green Olive" />
+
+                <TextView
+                    android:id="@+id/tblPrice1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="$9.99" />
+
+                <TextView
+                    android:id="@+id/tblQuantity1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="1" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/receipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:paddingRight="10dp"
-                android:text="Est. Tax" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tax"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="10dp"
+                    android:text="Subtotal" />
+
+                <TextView
+                    android:id="@+id/subtotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$9.99" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="$0.10" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="10dp"
+                    android:text="Est. Tax" />
+
+                <TextView
+                    android:id="@+id/tax"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$0.10" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="10dp"
+                    android:text="Total"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$10.09"
+                    android:textColor="#F44336"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="bottom|center"
+            android:layout_margin="20dp"
+            android:onClick="submitOrder"
+            android:text="@string/submit" />
 
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:paddingRight="10dp"
-                android:text="Total"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/total"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="$10.09"
-                android:textColor="#F44336"
-                android:textStyle="bold" />
-        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_margin="20dp"
-        android:text="@string/submit" />
-
-</LinearLayout>
+</ScrollView>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +15,9 @@ public class CustomerPage extends AppCompatActivity {
     private final static String STRING = "STRING";
 
     private String pizzaDetails = "";
+
+    LinearLayout tbl;
+    LinearLayout receipt;
 
 
     @Override
@@ -35,6 +40,18 @@ public class CustomerPage extends AppCompatActivity {
         displayDetails(order.getSubtotal(), R.id.tblPrice1);
         displayDetails(order.getTax(), R.id.tax);
         displayDetails(order.getTotal(), R.id.total);
+
+        tbl = (LinearLayout)findViewById(R.id.tbl);
+        receipt = (LinearLayout)findViewById(R.id.receipt);
+        tbl.setVisibility(View.GONE);
+        receipt.setVisibility(View.GONE);
+
+    }
+
+    public void submitOrder(View view) {
+        view.setVisibility(View.GONE);
+        tbl.setVisibility(View.VISIBLE);
+        receipt.setVisibility(View.VISIBLE);
     }
 
     //for item, desc, price, quantity (but item and quantity are fixed)
@@ -64,9 +81,6 @@ public class CustomerPage extends AppCompatActivity {
                 appendStr += item.concat(", ");
             }
         }
-//        for(int i = 0; i < list.size()-1; i++) {
-//            appendStr += (list.get(i) + ", ");
-//        }
         return appendStr;
     }
 

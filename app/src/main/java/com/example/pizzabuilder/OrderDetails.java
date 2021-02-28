@@ -1,5 +1,10 @@
 package com.example.pizzabuilder;
 
+import android.util.Log;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OrderDetails {
@@ -37,7 +42,17 @@ public class OrderDetails {
 
     public double getTax() {
         getSubtotal();
-        return this.tax = this.subtotal * this.taxRate;
+        double tax = this.subtotal * this.taxRate;
+//        BigDecimal bd = new BigDecimal(Double.toString(tax));
+//        bd = bd.setScale(2, RoundingMode.HALF_UP);
+//        return this.tax = bd.doubleValue();
+
+        DecimalFormat df = new DecimalFormat("0.00");
+//        df.setRoundingMode(RoundingMode.HALF_UP);
+        String str1 = df.format(tax);
+        Log.d(STRING, str1);
+        //parsing back to double will not keep format
+        return this.tax = Double.parseDouble(str1);
     }
 
     public double getTotal() {
