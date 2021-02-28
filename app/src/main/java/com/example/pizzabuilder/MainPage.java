@@ -50,7 +50,7 @@ public class MainPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_page);
         if (savedInstanceState != null) {
             ArrayList<String> list = savedInstanceState.getStringArrayList(KEY_TOPPINGS);
             //refactor setting back to instance
@@ -83,6 +83,7 @@ public class MainPage extends AppCompatActivity {
     }
 
     // TODO: 2/27/2021  SIZE_SMALL_PRICE here and set to string resource
+    // TODO: 2/28/2021 make only setSize required
     public void setSize(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();

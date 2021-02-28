@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,12 +20,14 @@ public class CustomerPage extends AppCompatActivity {
 
     LinearLayout tbl;
     LinearLayout receipt;
+    EditText editName, editPhone, editEmail, editAddress;
+    TextView textName, textPhone, textEmail, textAddress;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.customer_page);
 
         Intent intent = getIntent();
         OrderDetails order = new OrderDetails();
@@ -45,16 +49,40 @@ public class CustomerPage extends AppCompatActivity {
         receipt = (LinearLayout)findViewById(R.id.receipt);
         tbl.setVisibility(View.GONE);
         receipt.setVisibility(View.GONE);
-        // TODO: 2/28/2021 save state
 
+        editName = (EditText)findViewById(R.id.editName);
+        editPhone = (EditText)findViewById(R.id.editPhone);
+        editEmail = (EditText)findViewById(R.id.editEmail);
+        editAddress = (EditText)findViewById(R.id.editAddress);
+        // TODO: 2/28/2021 save state of making all editText disappear and setting TextViews
 
+        textName = (TextView)findViewById(R.id.textName);
+        textPhone = (TextView)findViewById(R.id.textPhone);
+        textEmail = (TextView)findViewById(R.id.textEmail);
+        textAddress = (TextView)findViewById(R.id.textAddress);
     }
 
     public void submitOrder(View view) {
         view.setVisibility(View.GONE);
         tbl.setVisibility(View.VISIBLE);
         receipt.setVisibility(View.VISIBLE);
-        // TODO: 2/28/2021 take input and set to TextView, then make the PlainText disappear 
+
+        textName.setText(editName.getText());
+        editName.setVisibility(View.GONE);
+
+        textPhone.setText(editPhone.getText());
+        editPhone.setVisibility(View.GONE);
+
+        textEmail.setText(editEmail.getText());
+        editEmail.setVisibility(View.GONE);
+
+        textAddress.setText(editAddress.getText());
+        editAddress.setVisibility(View.GONE);
+        // TODO: 2/28/2021 validations, make inputs required
+    }
+
+    public void required() {
+
     }
 
     //for item, desc, price, quantity (but item and quantity are fixed)
