@@ -11,8 +11,6 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class MainPage extends AppCompatActivity {
     private static final String STRING = "STRING";
     private static final String STRING_ARR = "STRING_ARR";
@@ -24,9 +22,9 @@ public class MainPage extends AppCompatActivity {
 //    private static double size_price = 0;
 //    private static final double TOPPING_PRICE = 0.50;
 
-    private static double SIZE_SMALL_PRICE = 5.99;
-    private static final double SIZE_MEDIUM_PRICE = 7.99;
-    private static final double SIZE_LARGE_PRICE = 9.99;
+//    private static double SIZE_SMALL_PRICE = 5.99;
+//    private static final double SIZE_MEDIUM_PRICE = 7.99;
+//    private static final double SIZE_LARGE_PRICE = 9.99;
 
     OrderDetails order = new OrderDetails();
     //order.setPrice(size_price);
@@ -47,6 +45,9 @@ public class MainPage extends AppCompatActivity {
     public void sendMessage(View view) {
         //getSize(), getToppings()
         Intent intent = new Intent(this, CustomerPage.class);
+        intent.putExtra("subtotal", String.valueOf(order.getSubtotal()));
+        intent.putExtra("toppings", order.getToppings());
+        intent.putExtra("size", order.getSizePrice());
         startActivity(intent);
     }
 
@@ -62,24 +63,24 @@ public class MainPage extends AppCompatActivity {
                 if (checked)
 //                    this.size = getString(R.string.size_small);
                     //setSizePrice(0) or setSizeSmall(), setSizeMedium()..
-                    order.setSizePrice(SIZE_SMALL_PRICE);
+                    order.setSizePrice(5.99);
                     break;
             case R.id.medium:
                 if (checked)
 //                    this.size = getString(R.string.size_medium);
-                    order.setSizePrice(SIZE_MEDIUM_PRICE);
+                    order.setSizePrice(7.99);
                     break;
             case R.id.large:
                 if (checked)
 //                    this.size = getString(R.string.size_large);
-                    order.setSizePrice(SIZE_LARGE_PRICE);
+                    order.setSizePrice(9.99);
                     break;
         }
         Log.d(STRING, size);
         strToTextView(String.valueOf(order.getSubtotal()), R.id.subtotal);
     }
 
-    // TODO: 2/27/2021  toppings not being remove after untoggle
+    // TODO: 2/27/2021  toppings not being removed after untoggle
     public void setToppings(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -112,7 +113,7 @@ public class MainPage extends AppCompatActivity {
                 break;
             case R.id.green_olive:
                 if (checked)
-                    order.addItem("Green olive");
+                    order.addItem("Green Olive");
                 else
                     order.removeItem("Green Olive");
                 break;
@@ -132,6 +133,5 @@ public class MainPage extends AppCompatActivity {
         TextView text = (TextView)findViewById(textViewID);
         text.setText(str);
     }
-
 
 }
