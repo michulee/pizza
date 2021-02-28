@@ -21,40 +21,21 @@ public class CustomerPage extends AppCompatActivity {
         setContentView(R.layout.activity_display_message);
 
         Intent intent = getIntent();
-
         OrderDetails order = new OrderDetails();
-
-
-        //can you set this subtotal into the global OrderDetails order??
-//        String subtotal = intent.getStringExtra("subtotal");
-//        displayDetails(String.valueOf(subtotal), R.id.subtotal);
 
         String subtotal = intent.getStringExtra("subtotal");
         displayDetails(String.valueOf(subtotal), R.id.subtotal);
 
-        //need to set size and toppings into order object
         ArrayList<String> toppings = intent.getStringArrayListExtra("toppings");
         order.setToppings(toppings);
         double size = intent.getDoubleExtra("size", 0);
         order.setSizePrice(size);
 
-        //make method to fix description
         displayDetails(order.getToppings(), order.getSize(), R.id.tblDesc1);
-
-//        displayDetails(String.valueOf(order.getSubtotal()), R.id.tblPrice1);
-//        displayDetails(String.valueOf(order.getTax()), R.id.tax);
-//        displayDetails(String.valueOf(order.getTotal()), R.id.total);
-
         displayDetails(order.getSubtotal(), R.id.tblPrice1);
         displayDetails(order.getTax(), R.id.tax);
         displayDetails(order.getTotal(), R.id.total);
     }
-
-    //assume 10% sales tax, return total in calculateTotal()
-
-    //setDescription(), setSubtotal() in both receipt and table, setTax(), setTotal()
-
-
 
     //for item, desc, price, quantity (but item and quantity are fixed)
     public void displayDetails(String str, int textViewID) {

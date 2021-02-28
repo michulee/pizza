@@ -37,7 +37,7 @@
 
             <ImageView
                 android:id="@+id/img_pizza_size"
-                android:layout_width="245dp"
+                android:layout_width="439dp"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 app:srcCompat="@drawable/pizza_whole" />

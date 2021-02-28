@@ -4,9 +4,14 @@ import android.widget.TextView;
 
 public class Helpers {
 
-//    public void strToTextView(String str, int textViewID) {
-//        TextView text = (TextView) text.findViewById();
+//    public static void strToTextView(String str, int textViewID) {
+//        TextView text = (TextView)findViewById(textViewID);
 //        text.setText(str);
+//    }
+//
+//    public static void doubleToTextView(double num, int textViewID) {
+//        TextView text = (TextView)findViewById(textViewID);
+//        text.setText(String.valueOf(num));
 //    }
 
 }

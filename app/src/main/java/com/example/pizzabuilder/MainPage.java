@@ -1,5 +1,6 @@
 package com.example.pizzabuilder;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,10 +12,21 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+//import static com.example.pizzabuilder.Helpers.doubleToTextView;
+//import static com.example.pizzabuilder.Helpers.strToTextView;
+
+import java.util.ArrayList;
+
+
+
+
 public class MainPage extends AppCompatActivity {
     private static final String STRING = "STRING";
     private static final String STRING_ARR = "STRING_ARR";
     public static final String EXTRA_MESSAGE = "com.example.pizzabuilder.MESSAGE";
+    private static final String KEY_TOPPINGS = "toppings";
+    private static final String KEY_SUBTOTAL = "subtotal";
+    private static final String KEY_SIZE = "size";
 
     private String size = "";
 //    ArrayList<String> toppings = new ArrayList<String>();
@@ -39,6 +51,25 @@ public class MainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            ArrayList<String> list = savedInstanceState.getStringArrayList(KEY_TOPPINGS);
+            //refactor setting back to instance
+            //need to set sizePrice and toppings in order to getSubtotal
+            order.setToppings(list);
+            double price = savedInstanceState.getDouble(KEY_SIZE);
+            order.setSizePrice(price);
+
+            doubleToTextView(order.getSubtotal(), R.id.subtotal);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //putInt(KEY, value)
+        outState.putDouble(KEY_SUBTOTAL, order.getSubtotal());
+        outState.putDouble(KEY_SIZE, order.getSizePrice());
+        outState.putStringArrayList(KEY_TOPPINGS, order.getToppings());
     }
 
     /** Called when the user taps the Next button */
@@ -132,6 +163,11 @@ public class MainPage extends AppCompatActivity {
     public void strToTextView(String str, int textViewID) {
         TextView text = (TextView)findViewById(textViewID);
         text.setText(str);
+    }
+
+    public void doubleToTextView(double num, int textViewID) {
+        TextView text = (TextView)findViewById(textViewID);
+        text.setText(String.valueOf(num));
     }
 
 }
