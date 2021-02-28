@@ -24,30 +24,41 @@
         <LinearLayout
             android:id="@+id/info"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_weight="0"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="50dp"
+                    android:layout_weight="0"
                     android:text="Full Name" />
 
                 <TextView
                     android:id="@+id/textView9"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="0"
                     android:text="John Doe"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="0"
+                    android:hint="John Doe"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
@@ -55,69 +66,94 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView10"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="50dp"
+                    android:layout_weight="0"
                     android:text="Phone Number" />
 
                 <TextView
                     android:id="@+id/textView11"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="0"
                     android:text="(123) 456 - 7890"
                     android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="0"
+                    android:hint="(123) 456 - 7890"
+                    android:inputType="phone" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="50dp"
+                    android:layout_weight="0"
                     android:text="Email" />
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="0"
                     android:text="email@email.com"
                     android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="0"
+                    android:hint="jdoe@email.com"
+                    android:inputType="textWebEmailAddress" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView14"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="50dp"
+                    android:layout_weight="0"
                     android:text="Address" />
 
                 <TextView
                     android:id="@+id/textView15"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="0"
                     android:text="1234 Address Ave. City, CA 12345"
                     android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="0"
+                    android:hint="1234 Address Ave. City, CA 12345"
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
         </LinearLayout>
 
@@ -126,7 +162,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -214,7 +251,8 @@
             android:id="@+id/receipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

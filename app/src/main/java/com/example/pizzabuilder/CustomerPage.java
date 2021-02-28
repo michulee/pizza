@@ -45,6 +45,8 @@ public class CustomerPage extends AppCompatActivity {
         receipt = (LinearLayout)findViewById(R.id.receipt);
         tbl.setVisibility(View.GONE);
         receipt.setVisibility(View.GONE);
+        // TODO: 2/28/2021 save state
+
 
     }
 
@@ -52,6 +54,7 @@ public class CustomerPage extends AppCompatActivity {
         view.setVisibility(View.GONE);
         tbl.setVisibility(View.VISIBLE);
         receipt.setVisibility(View.VISIBLE);
+        // TODO: 2/28/2021 take input and set to TextView, then make the PlainText disappear 
     }
 
     //for item, desc, price, quantity (but item and quantity are fixed)
