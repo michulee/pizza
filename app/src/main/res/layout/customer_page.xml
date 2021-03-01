@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:text="John Doe"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editName"
@@ -76,7 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="(123) 456 - 7890"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editPhone"
@@ -105,7 +106,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="email@email.com"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editEmail"
@@ -133,7 +135,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1234 Address Ave. City, CA 12345"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editAddress"

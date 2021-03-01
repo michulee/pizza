@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,14 +29,13 @@ public class CustomerPage extends AppCompatActivity {
     LinearLayout receipt;
     EditText editName, editPhone, editEmail, editAddress;
     TextView textName, textPhone, textEmail, textAddress;
+    Button submit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_page);
-
-
 
         Intent intent = getIntent();
         OrderDetails order = new OrderDetails();
@@ -62,21 +62,36 @@ public class CustomerPage extends AppCompatActivity {
         editPhone = (EditText)findViewById(R.id.editPhone);
         editEmail = (EditText)findViewById(R.id.editEmail);
         editAddress = (EditText)findViewById(R.id.editAddress);
-        // TODO: 2/28/2021 save state of making all editText disappear and setting TextViews
 
         textName = (TextView)findViewById(R.id.textName);
         textPhone = (TextView)findViewById(R.id.textPhone);
         textEmail = (TextView)findViewById(R.id.textEmail);
         textAddress = (TextView)findViewById(R.id.textAddress);
 
-        if (savedInstanceState != null) {
-            //setText to all TextViews
+        submit = (Button)findViewById(R.id.submit);
 
-            //str is empty
-            String name = savedInstanceState.getString("KEY_NAME");
-//            textName.setText(name);
+        if (savedInstanceState != null) {
+            tbl.setVisibility(View.VISIBLE);
+            receipt.setVisibility(View.VISIBLE);
+
+            textName.setVisibility(View.VISIBLE);
             textName.setText(savedInstanceState.getString(KEY_NAME));
             editName.setVisibility(View.GONE);
+
+            textPhone.setVisibility(View.VISIBLE);
+            textPhone.setText(savedInstanceState.getString(KEY_PHONE));
+            editPhone.setVisibility(View.GONE);
+
+            textEmail.setVisibility(View.VISIBLE);
+            textEmail.setText(savedInstanceState.getString(KEY_EMAIL));
+            editEmail.setVisibility(View.GONE);
+
+            textAddress.setVisibility(View.VISIBLE);
+            textAddress.setText(savedInstanceState.getString(KEY_ADDRESS));
+            editAddress.setVisibility(View.GONE);
+
+            submit.setVisibility(View.GONE);
+
         }
     }
 
@@ -97,15 +112,19 @@ public class CustomerPage extends AppCompatActivity {
         tbl.setVisibility(View.VISIBLE);
         receipt.setVisibility(View.VISIBLE);
 
+        textName.setVisibility(View.VISIBLE);
         textName.setText(editName.getText());
         editName.setVisibility(View.GONE);
 
+        textPhone.setVisibility(View.VISIBLE);
         textPhone.setText(editPhone.getText());
         editPhone.setVisibility(View.GONE);
 
+        textEmail.setVisibility(View.VISIBLE);
         textEmail.setText(editEmail.getText());
         editEmail.setVisibility(View.GONE);
 
+        textAddress.setVisibility(View.VISIBLE);
         textAddress.setText(editAddress.getText());
         editAddress.setVisibility(View.GONE);
         // TODO: 2/28/2021 validations, make inputs required
