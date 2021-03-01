@@ -7,6 +7,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
 public class OrderDetails {
 
     private final static String STRING = "STRING";
@@ -21,17 +22,9 @@ public class OrderDetails {
     private String size = "";
     private final double TOPPING_PRICE = 0.50;
 
-//    private final double SIZE_SMALL_PRICE = 5.99;
-//    private final double SIZE_MEDIUM_PRICE = 7.99;
-//    private final double SIZE_LARGE_PRICE = 9.99;
-
-//    private double calculateSubtotal(ArrayList<String> list) {
-//        if(list.size() == 0) {
-//            return subtotal = size_price;
-//        }
-////        Log.d(STRING, String.valueOf(size_price));
-//        return subtotal = list.size() * TOPPING_PRICE + size_price;
-//    }
+    private final double SIZE_SMALL_PRICE = 5.99;
+    private final double SIZE_MEDIUM_PRICE = 7.99;
+    private final double SIZE_LARGE_PRICE = 9.99;
 
     public double getSubtotal() {
         if(list.size() == 0) {
@@ -50,7 +43,6 @@ public class OrderDetails {
         DecimalFormat df = new DecimalFormat("0.00");
 //        df.setRoundingMode(RoundingMode.HALF_UP);
         String str1 = df.format(tax);
-        Log.d(STRING, str1);
         //parsing back to double will not keep format
         return this.tax = Double.parseDouble(str1);
     }
@@ -62,14 +54,18 @@ public class OrderDetails {
         return this.total = this.subtotal * (1 + this.taxRate);
     }
 
+    /**
+     *
+     * @param price
+     */
     public void setSizePrice(double price) {
-        if(price == 5.99) {
+        if(price == SIZE_SMALL_PRICE) {
             this.size = "Small";
         }
-        else if(price == 7.99) {
+        else if(price == SIZE_MEDIUM_PRICE) {
             this.size = "Medium";
         }
-        else if(price == 9.99) {
+        else if(price == SIZE_LARGE_PRICE) {
             this.size = "Large";
         }
         this.size_price = price;
@@ -83,13 +79,10 @@ public class OrderDetails {
         return this.size;
     }
 
-    //instead of order.addItem(), use order.add() by using @override???
-//    @Override
     public void addItem(String item) {
         this.list.add(item);
     }
 
-//    @Override
     public void removeItem(String item) {
         this.list.remove(item);
     }
