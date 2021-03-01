@@ -1,10 +1,12 @@
 package com.example.pizzabuilder;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,6 +17,10 @@ import java.util.ArrayList;
 public class CustomerPage extends AppCompatActivity {
 
     private final static String STRING = "STRING";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_PHONE = "phone";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_ADDRESS = "address";
 
     private String pizzaDetails = "";
 
@@ -28,6 +34,8 @@ public class CustomerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_page);
+
+
 
         Intent intent = getIntent();
         OrderDetails order = new OrderDetails();
@@ -60,6 +68,28 @@ public class CustomerPage extends AppCompatActivity {
         textPhone = (TextView)findViewById(R.id.textPhone);
         textEmail = (TextView)findViewById(R.id.textEmail);
         textAddress = (TextView)findViewById(R.id.textAddress);
+
+        if (savedInstanceState != null) {
+            //setText to all TextViews
+
+            //str is empty
+            String name = savedInstanceState.getString("KEY_NAME");
+//            textName.setText(name);
+            textName.setText(savedInstanceState.getString(KEY_NAME));
+            editName.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //save all input
+        outState.putString(KEY_NAME, String.valueOf(editName.getText()));
+        outState.putString(KEY_PHONE, String.valueOf(editPhone.getText()));
+        outState.putString(KEY_EMAIL, String.valueOf(editEmail.getText()));
+        outState.putString(KEY_ADDRESS, String.valueOf(editAddress.getText()));
+
     }
 
     public void submitOrder(View view) {
