@@ -17,12 +17,9 @@ import android.widget.TextView;
 public class MainPage extends AppCompatActivity {
     private static final String STRING = "STRING";
     private static final String STRING_ARR = "STRING_ARR";
-    public static final String EXTRA_MESSAGE = "com.example.pizzabuilder.MESSAGE";
     private static final String KEY_TOPPINGS = "toppings";
     private static final String KEY_SUBTOTAL = "subtotal";
     private static final String KEY_SIZE = "size";
-
-
 
     OrderDetails order = new OrderDetails();
 
@@ -48,7 +45,10 @@ public class MainPage extends AppCompatActivity {
         outState.putStringArrayList(KEY_TOPPINGS, order.getToppings());
     }
 
-    /** Called when the user taps the Next button */
+    /**
+     * User will be sent to the CustomerPage activity upon click with data: subtotal, toppings, size.
+     * @param view button that will send the user to the next activity
+     */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, CustomerPage.class);
 
@@ -58,8 +58,10 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // TODO: 2/27/2021  SIZE_SMALL_PRICE here and set to string resource
-    // TODO: 2/28/2021 make only setSize required
+    /**
+     * Sets size price for small, medium, or large based on a clicked radioButton.
+     * @param view radioButton views of pizza sizes
+     */
     public void setSize(View view) {
         boolean checked = ((RadioButton) view).isChecked();
         final double SIZE_SMALL_PRICE = 5.99;
@@ -84,7 +86,11 @@ public class MainPage extends AppCompatActivity {
         displayDetails(order.getSubtotal(), R.id.subtotal);
     }
 
-    // TODO: 2/27/2021  toppings not being removed after untoggle
+    /**
+     * If a checkbox isn't toggled, add the topping to the list. If a checkbox is toggled, remove
+     * the topping from the list.
+     * @param view checkBox views of toppings
+     */
     public void setToppings(View view) {
         boolean checked = ((CheckBox) view).isChecked();
 
@@ -130,11 +136,11 @@ public class MainPage extends AppCompatActivity {
         displayDetails(order.getSubtotal(), R.id.subtotal);
     }
 
-    public void displayDetails(String str, int textViewID) {
-        TextView text = (TextView)findViewById(textViewID);
-        text.setText(str);
-    }
-
+    /**
+     * Helper method that sets value of first parameter to TextView of second parameter.
+     * @param num element that will be set as a string of the second parameter's TextView
+     * @param textViewID id of a TextView
+     */
     public void displayDetails(double num, int textViewID) {
         TextView text = (TextView)findViewById(textViewID);
         text.setText(String.valueOf(num));

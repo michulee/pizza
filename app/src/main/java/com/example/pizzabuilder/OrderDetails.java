@@ -26,6 +26,10 @@ public class OrderDetails {
     private final double SIZE_MEDIUM_PRICE = 7.99;
     private final double SIZE_LARGE_PRICE = 9.99;
 
+    /**
+     * Gets subtotal based on the size and toppings.
+     * @return subtotal of a pizza
+     */
     public double getSubtotal() {
         if(list.size() == 0) {
             return subtotal = size_price;
@@ -33,30 +37,32 @@ public class OrderDetails {
         return subtotal = list.size() * TOPPING_PRICE + size_price;
     }
 
+    /**
+     * Returns the estimated tax of a pizza from sales tax %.
+     * @return estimated tax of a pizza
+     */
     public double getTax() {
         getSubtotal();
-        double tax = this.subtotal * this.taxRate;
-//        BigDecimal bd = new BigDecimal(Double.toString(tax));
-//        bd = bd.setScale(2, RoundingMode.HALF_UP);
-//        return this.tax = bd.doubleValue();
 
+        double tax = this.subtotal * this.taxRate;
         DecimalFormat df = new DecimalFormat("0.00");
-//        df.setRoundingMode(RoundingMode.HALF_UP);
         String str1 = df.format(tax);
         //parsing back to double will not keep format
         return this.tax = Double.parseDouble(str1);
     }
 
+    /**
+     * Returns the subtotal + tax of a pizza.
+     * @return subtotal + tax of a pizza
+     */
     public double getTotal() {
-        //keep getSubtotal() and getTax() or remove??
         getSubtotal();
-//        getTax();
         return this.total = this.subtotal * (1 + this.taxRate);
     }
 
     /**
-     *
-     * @param price
+     * Sets the size price of a pizza.
+     * @param price price of a pizza size
      */
     public void setSizePrice(double price) {
         if(price == SIZE_SMALL_PRICE) {
@@ -71,28 +77,48 @@ public class OrderDetails {
         this.size_price = price;
     }
 
+    /**
+     * Returns the size price of a pizza.
+     * @return size price of a pizza
+     */
     public double getSizePrice() {
         return this.size_price;
     }
 
-    public String getSize() {
-        return this.size;
-    }
+    /**
+     * Returns the size of a pizza.
+     * @return size of a pizza
+     */
+    public String getSize() { return this.size; }
 
-    public void addItem(String item) {
-        this.list.add(item);
-    }
-
-    public void removeItem(String item) {
-        this.list.remove(item);
-    }
-
+    /**
+     * Returns a list of toppings.
+     * @return list of toppings
+     */
     public ArrayList<String> getToppings() {
         return this.list;
     }
 
+    /**
+     * Sets a list of toppings.
+     * @param list list of toppings
+     */
     public void setToppings(ArrayList<String> list) {
         this.list = list;
     }
+
+    /**
+     * Helper method that adds an item to a list.
+     * @param item that will be added to a list
+     */
+    public void addItem(String item) {
+        this.list.add(item);
+    }
+
+    /**
+     * Helper method that removes an item from a list.
+     * @param item that will be removed from a list
+     */
+    public void removeItem(String item) { this.list.remove(item); }
 
 }
