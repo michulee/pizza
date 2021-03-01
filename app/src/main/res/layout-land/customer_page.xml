@@ -26,12 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
+                android:clipToPadding="false"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -46,6 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="John Doe"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
 
@@ -78,6 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="(123) 456 - 7890"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
 
@@ -109,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="email@email.com"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
 
@@ -139,6 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1234 Address Ave. City, CA 12345"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
 
